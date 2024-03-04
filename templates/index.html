@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block head %}
+<title> Lifelink- Assistant </title>
+{% endblock head %} {% block hero %}
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h1 data-aos="fade-up">About Lifelink- Assistant</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400" style="text-align: justify;">
+                    <p>LifeLink Bot is a versatile healthcare chatbot designed to provide various services:</p>
+
+    <ul>
+        <li>Predict disease using Symptoms</li>
+        <li>Provide symptoms of a disease</li>
+        <li>Recommend location-based hospitals</li>
+        <li>Utilize advanced Llama-2 LLM for Healthcare Chatbot</li>
+    </ul>
+                                   </h2>
+                <div data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-center text-lg-start">
+                        <a href="login" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Click to access the chatbot</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <img src="{{ url_for('static',filename='custom/hero-main.png') }}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock hero %} {% block main %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="content">
+                    <h3>BMI</h3>
+                    <h2>BMI stands for Body Mass Index. It is a numerical value of a person's weight in relation to their height. BMI is commonly used as a screening tool to categorize individuals into different weight status categories such as underweight, normal weight, overweight, and obesity.</h2>
+                    <div class="text-center text-lg-start">
+                        <a href="login" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Click here to check BMI</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                <img src="{{ url_for('static',filename='custom/about.png') }}" class="img-fluid" alt="">
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- End About Section -->
+
+
+
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+            <h2>Project By</h2>
+            <p>--Team--</p>
+        </header>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="member">
+                   
+                    <div class="member-info">
+                        <h4>Ganesha Ram G</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                <div class="member">
+                    
+                    <div class="member-info">
+                        <h4>Nithin Varma K</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="member">
+                    
+                    <div class="member-info">
+                        <h4>Ashween Raj V S</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- End Team Section -->
+
+{% endblock main %}

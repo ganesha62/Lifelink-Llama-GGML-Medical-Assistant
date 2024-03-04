@@ -1,0 +1,310 @@
+{% extends "base_login.html" %} {% block head %}
+
+<title> | Lifelink- Assistant </title>
+
+{% endblock head %} {% block hero %}
+
+<section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h1 data-aos="fade-up">About Lifelink- Assistant</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400" style="text-align: justify;">
+                    <p>LifeLink Bot is a versatile healthcare chatbot designed to provide various services:</p>
+
+    <ul>
+        <li>Predict disease using Symptoms</li>
+        <li>Provide symptoms of a disease</li>
+        <li>Recommend location-based hospitals</li>
+        <li>Utilize advanced Llama-2 LLM for Healthcare Chatbot</li>
+    </ul>
+                                   </h2>
+                    <div data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-center text-lg-start">
+                        <a href="javascript:void(0)" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center" onclick="showDiv();">
+                            <span>Get Started</span>
+                            <i class="bi bi-chat"></i>
+
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <img src="{{ url_for('static',filename='custom/hero-main.png') }}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock hero %} {% block main %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+            <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="content">
+                    <h3>BMI</h3>
+                    <h2>BMI stands for Body Mass Index. It is a numerical value of a person's weight in relation to their height. BMI is commonly used as a screening tool to categorize individuals into different weight status categories such as underweight, normal weight, overweight, and obesity.</h2>
+                           <a href="upload" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Check BMI</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                <img src="{{ url_for('static',filename='custom/about.png') }}" class="img-fluid" alt="">
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- End About Section -->
+
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+            <h2>Project By</h2>
+            <p>--Team--</p>
+        </header>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="member">
+                   
+                    <div class="member-info">
+                        <h4>Ganesha Ram G</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                <div class="member">
+                    
+                    <div class="member-info">
+                        <h4>Nithin Varma K</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="member">
+                    
+                    <div class="member-info">
+                        <h4>Ashween Raj V S</h4>
+                        <span>III CSE A</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- End Team Section -->
+
+
+
+
+
+<!--Chatbot stuff-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' />
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' />
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='jquery.mCustomScrollbar.min.css') }}" />
+<script src="{{ url_for('static',filename='jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='chatBotStyle1.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='chatBotStyle.css') }}">
+
+<div id="chat-bot" onclick="showDiv();">
+    <div class="icon">
+        <div class="user">
+            <i class="fas"></i> Lifelink- Assistant- A Healthcare bot
+        </div>
+        <i class="bi bi-chat"></i>
+    </div>
+</div>
+
+
+<div id="chatBox" class="chatBoxHidden">
+
+    <section id="avenue-messenger" class="avenue-messenger">
+        <div class="menu">
+        </div>
+        <div class="agent-face">
+                <img class="agent circle" src="https://jungleworks.com/wp-content/uploads/2021/04/1_9I6EIL5NG20A8se5afVmOg.gif" alt="Chatbot"
+                style="margin-top: 70px;"
+                >
+                
+        </div>
+        <div class="chat">
+            
+            <div class="chat-title">
+                <h1>Lifelink- Assistant</h1>
+                <h2>AI Chatbot by Ganesha Ram, Nithin and Ashween</h2>
+                <!--  <figure class="avatar">
+                      <img src="http://askavenue.com/img/17.jpg" /></figure>-->
+            </div>
+            <div class="messages">
+                <div class="messages-content"></div>
+            </div>
+            <div class="message-box">
+                <textarea type="text" class="message-input" placeholder="Type your queries..."></textarea>
+                <button type="submit" class="message-submit">Send</button>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+<button id="request-location">Get Current Location</button>
+
+
+<script>
+    $(document).ready(function() {
+        var $messages = $('.messages-content'),
+            d, h, m,
+            i = 0;
+
+        $(window).load(function() {
+            $messages.mCustomScrollbar();
+            setTimeout(function() {
+                fakeMessage();
+            }, 100);
+        });
+
+        function updateScrollbar() {
+            $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+                scrollInertia: 10,
+                timeout: 0
+            });
+        }
+
+        function setDate() {
+            d = new Date();
+            if (m != d.getMinutes()) {
+                m = d.getMinutes();
+                $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+                $('<div class="checkmark-sent-delivered">&check;</div>').appendTo($('.message:last'));
+                $('<div class="checkmark-read">&check;</div>').appendTo($('.message:last'));
+            }
+        }
+
+        function insertMessage() {
+            var msg = $('.message-input').val();
+            if ($.trim(msg) == '') {
+                return false;
+            }
+            $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+            setDate();
+            $('.message-input').val(null);
+            updateScrollbar();
+            setTimeout(function() {
+                sendMessage(msg);
+            }, 1000);
+        }
+
+        $('.message-submit').click(function() {
+            insertMessage();
+        });
+
+        $(window).on('keydown', function(e) {
+            if (e.which == 13) {
+                insertMessage();
+                return false;
+            }
+        });
+
+        
+        // Function to request user's location
+        // Function to request user's location and perform reverse geocoding
+function requestLocation() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Perform reverse geocoding to get location name
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+                .then(response => response.json())
+                .then(data => {
+                    var locationName = data.display_name;
+                    var locationMessage = "Current location: " + locationName;
+                    insertMessage(locationMessage);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    insertMessage("Failed to retrieve location name.");
+                });
+        });
+    } else {
+        insertMessage("Geolocation is not supported by this browser.");
+    }
+}
+
+
+        function sendMessage(message) {
+            displayMessage("Loading...");
+            fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayMessage(data.response);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function displayMessage(message) {
+            $('.message.loading').remove();
+            $('<div class="message new"><figure class="avatar"><img src="static/chatbot_icon.png" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+            setDate();
+            updateScrollbar();
+        }
+
+        function fakeMessage() {
+            $('<div class="message new"><figure class="avatar"><img src="static/chatbot_icon.png" /></figure>Hi there! How can I assist you today?</div>').appendTo($('.mCSB_container')).addClass('new');
+            setDate();
+            updateScrollbar();
+        }
+
+        $('#chat-bot').click(function() {
+            $('#chatBox').toggleClass('chatBoxVisible');
+        });
+
+        // Event listener for location request
+        $('#request-location').click(function() {
+            requestLocation();
+        });
+    });
+</script>
+
+
+
+{% endblock main %}
